@@ -47,8 +47,30 @@ let url = `https://odd-jade-gosling-sock.cyclic.app/products`;
   },[url])
   return (
     <>
+   {
+    isSmallerThan480?
    
-    <Flex justifyContent="space-between" alignItems="center" border="0px solid black" backgroundColor="#e40046" padding="20px">
+    <Flex gap={2} justifyContent= 'center' alignItems="center" border="0px solid black" backgroundColor="#e40046" padding= {isSmallerThan480?"10px":"20px"} >
+      
+        <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={()=>handleCategoryClick("")} >{isSmallerThan768 ? 'All' : 'All Products'}</Button>
+      
+
+     
+        <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={() => handleCategoryClick("men's clothing")}>Men</Button>
+        <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={() => handleCategoryClick("women's clothing")}>Women</Button>
+        <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={() => handleCategoryClick('electronics')}>Electronics</Button>
+        <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={() => handleCategoryClick('jewelery')}>Jewellery</Button>
+  
+      <Link to="/cart">
+        <Button 
+         size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} mt={isSmallerThan480 ? '-1' : null} leftIcon={<FaShoppingCart />}> Cart {CartProducts.length}</Button>
+      </Link>
+      
+    </Flex>
+    
+    :
+    
+    <Flex justifyContent= "space-between" alignItems="center" border="0px solid black" backgroundColor="#e40046" padding= {isSmallerThan480?"10px":"20px"} >
       <Flex>
         <Button size={isSmallerThan360 ? 'xs' : isSmallerThan480 ? 'xs' : 'md'} onClick={()=>handleCategoryClick("")} >{isSmallerThan768 ? 'All' : 'All Products'}</Button>
       </Flex>
@@ -65,6 +87,9 @@ let url = `https://odd-jade-gosling-sock.cyclic.app/products`;
       </Link>
       </Flex>
     </Flex>
+    
+    
+    }
 
     <Heading padding=  {isSmallerThan768 ? "5px 20px":  "10px 20px"}    >
     {text}

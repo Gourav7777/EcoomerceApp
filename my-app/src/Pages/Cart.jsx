@@ -100,13 +100,13 @@ const Cart = () => {
                         <>
                             <Flex width={{ base: '100%', md: '70%' }} border='0px solid black' maxHeight="80vh" overflowY="auto" flexDirection='column' gap={5} paddingRight='5px'>
                                 {cartProducts.map((product) => (
-                                    <Flex key={product.id} width="100%" border='1px solid black' padding='10px 30px' gap='40px'>
+                                    <Flex key={product.id} width="100%" border='1px solid black' padding='10px 20px' gap='40px' >
                                         <Flex flexDirection='column' gap='25px'>
                                             <Image src={product.image} alt={product.title} boxSize="100px" objectFit="cover" marginRight="20px" />
                                             <Flex gap='5px'>
                                                 <Button size='sm' fontWeight='bold' onClick={() => updateCartQuantity(product?._id, product?.quantity - 1)} isDisabled={product.quantity === 1}>  -  </Button>
                                                 <Text>{product.quantity || 0}</Text>
-                                                <Button size='sm' onClick={() => updateCartQuantity(product?._id, product.quantity+1)}> +</Button>
+                                                <Button size='sm' onClick={() => updateCartQuantity(product?._id, product?.quantity+1)}> +</Button>
                                             </Flex>
                                         </Flex>
                                         <Box>
